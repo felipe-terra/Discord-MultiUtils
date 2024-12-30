@@ -10,12 +10,14 @@ module.exports = {
       });
 
       const data = await response.json();
-
+      const player = data.pageProps.player;
+      const clan = player.clan || 'Sem Clã'; 
       if (data.pageProps.player === null) return message.reply({ content: `${client.xx?.zwrong || '❌'} Esse **nick** nunca jogou no **Flame** ou não existe.` })
+      
       const embed = new EmbedBuilder()
         .setColor('Orange')
-        .setAuthor({ name: ` ${data.pageProps.player.name} ${data.pageProps.player.clan ? `[${data.pageProps.player.clan}]` : ''}` , iconURL: 'https://www.flamemc.com.br/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fmain-logo-without-bg.3acfead7.png&w=640&q=75' })
-        .setThumbnail('https://mc-heads.net/head/' + data.pageProps.player.uuid)
+        .setAuthor({ name: `${player.name} [${clan}]`, iconURL: 'https://www.flamemc.com.br/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fmain-logo-without-bg.3acfead7.png&w=640&q=75' })
+        .setThumbnail('https://mc-heads.net/head/' + player.uuid)
         .addFields(
           {
             name: 'Nick',
