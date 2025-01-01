@@ -9,10 +9,12 @@ module.exports = {
       const response = await fetch(`https://www.flamemc.com.br/_next/data/Lid3E1KT0-AQh8ObLLzfQ/player/${args[0]}.json?nick=${args[0]}`, {
       });
 
+      
+
       const data = await response.json();
       const player = data.pageProps.player;
+      if (data.pageProps.player === null) return message.reply({ content: `Esse nick nunca jogou no **Flame** ou não existe.` })
       const clan = player.clan || 'Sem Clã'; 
-      if (data.pageProps.player === null) return message.reply({ content: `${client.xx?.zwrong || '❌'} Esse **nick** nunca jogou no **Flame** ou não existe.` })
       
       const embed = new EmbedBuilder()
         .setColor('Orange')
@@ -35,8 +37,8 @@ module.exports = {
             inline: true
           }
         )
+        .setFooter({ text: `Bot feito por @newaay & @rhx` })
 
-      // Adicionar estatísticas do HG
       if (data.pageProps.player.realStats.hg) {
         const hgStats = data.pageProps.player.realStats.hg.stats;
         const kills = hgStats.find(s => s.statsMap.name === 'hg_kills')?.value || 0;

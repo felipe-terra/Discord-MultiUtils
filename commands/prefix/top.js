@@ -6,10 +6,10 @@ module.exports = {
     async execute(message, args) {
         try {
             const modos = {
-                hg: { statId: 19, title: 'Top 10 do HG (Season 9)', expStat: 'hg_exp', winsStat: 'hg_wins' },
-                fl: { statId: 25, title: 'Top 10 da Flame League (Season 9)', expStat: 'league_exp', winsStat: 'league_wins' },
-                cxc: { statId: 30, title: 'Top 10 do CxC (Season 9)', expStat: 'competitive_exp', winsStat: 'competitive_wins' },
-                arena: { statId: 6, title: 'Top 10 do PvP Arena (Season 9)', expStat: 'pvp_exp', winsStat: 'pvp_arena_best_streak' },
+                hg: { statId: 19, title: 'Top 10 do HG da season', expStat: 'hg_exp', winsStat: 'hg_wins' },
+                fl: { statId: 25, title: 'Top 10 da Flame League da season', expStat: 'league_exp', winsStat: 'league_wins' },
+                cxc: { statId: 30, title: 'Top 10 do CxC da season', expStat: 'competitive_exp', winsStat: 'competitive_wins' },
+                arena: { statId: 6, title: 'Top 10 do PvP Arena da season', expStat: 'pvp_exp', winsStat: 'pvp_arena_best_streak' },
             };
 
             const argument = args[0]?.toLowerCase();
